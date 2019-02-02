@@ -11,7 +11,7 @@ app.use(cors());
 
 
 //iniciando o db
-mongoose.connect('mongodb://localhost:27017/nodeapi', { useNewUrlParser : true });
+mongoose.connect('mongodb://userbkp:PjKQ6ClJ*G61@ds143683.mlab.com:43683/node-api-daniel-database', { useNewUrlParser : true });
 
 requireDir('./src/models');
 
