@@ -8,6 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+var port = process.env.PORT || 8080;
 
 
 //iniciando o db
@@ -19,4 +20,4 @@ requireDir('./src/models');
 
 app.use("/api",require("./src/routes"));
 
-app.listen(8080);
+app.listen(port);
