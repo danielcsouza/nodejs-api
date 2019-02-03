@@ -1,0 +1,161 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "NodeJS API - Daniel Carlos",
+      "description": "API feito em NodeJS para estudos",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "nodejs-daniel-api.herokuapp.com",
+    "basePath": "/api",
+    "tags": [
+      {
+        "name": "Produtos",
+        "description": "API dos Produtos"
+      }
+    ],
+    "schemes": [
+      "https"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/products": {
+        "post": {
+          "tags": [
+            "Produtos"
+          ],
+          "description": "Cria um novo produto no banco",
+          "parameters": [
+            {
+              "name": "product",
+              "in": "body",
+              "description": "Quando um novo produto é criado",
+              "schema": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Criar novo Produto",
+              "schema": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "Produtos"
+          ],
+          "summary": "Lista todos os produtos",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Products"
+              }
+            }
+          }
+        }
+      },
+      "/products/{productId}": {
+        "parameters": [
+          {
+            "name": "productId",
+            "in": "path",
+            "required": true,
+            "description": "Id do produto que deseja",
+            "type": "string"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Products"
+          ],
+          "summary": "Pegar um produto pelo ID",
+          "responses": {
+            "200": {
+              "description": "Procurar um produto pelo ID",
+              "schema": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          }
+        },
+        "delete": {
+          "summary": "Excluir um produto pelo ID",
+          "tags": [
+            "Products"
+          ],
+          "responses": {
+            "200": {
+              "description": "Apagar um produto",
+              "schema": {
+                "$ref": "#/definitions/Product"
+              }
+            }
+          }
+        },
+        "put": {
+          "summary": "Atualizar produto pelo ID",
+          "tags": [
+            "Products"
+          ],
+          "parameters": [
+            {
+              "title": "produto",
+              "in": "body",
+              "description": "Mandar os objetos que deseja atualizar ",
+              "schema": {
+                "$ref": "#/definitions/Products"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Produto atualizado",
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Product": {
+        "required": [
+          "title",
+          "_id"
+        ],
+        "properties": {
+          "_id": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "Products": {
+        "type": "array",
+        "$ref": "#/definitions/Product"
+      }
+    }
+  }
