@@ -4,9 +4,7 @@ const routes  = express.Router();
 const ProductController  = require('./controllers/ProductController');
 
 routes.get("/", (res,req) => {
-
-    return res.body("It's Run..");
-
+    res.send("It's Run..");
 
 });
 routes.get("/products", ProductController.index);
