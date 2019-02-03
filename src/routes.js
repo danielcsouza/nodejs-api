@@ -5,7 +5,7 @@ const ProductController  = require('./controllers/ProductController');
 
 routes.get("/", (res,req) => {
 
-    return "It's Run..";
+    return res.body("It's Run..");
 
 
 });
