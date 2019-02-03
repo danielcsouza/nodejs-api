@@ -19,4 +19,4 @@ requireDir('./src/models');
 
 app.use("/api",require("./src/routes"));
 
-app.listen();
+app.listen(8080);
