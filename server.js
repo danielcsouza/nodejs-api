@@ -15,13 +15,16 @@ var port = process.env.PORT || 8080;
 
 
 //iniciando o db
-mongoose.connect('mongodb://userbkp:PjKQ6ClJ*G61@ds143683.mlab.com:43683/node-api-daniel-database', { useNewUrlParser : true });
+
+mongoose.connect('mongodb://conectionstring aqui.', {
+    useNewUrlParser: true
+});
 
 requireDir('./src/models');
 
 //const Product = mongoose.model('Product');
 
-app.use("/api",require("./src/routes"));
+app.use("/api", require("./src/routes"));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
